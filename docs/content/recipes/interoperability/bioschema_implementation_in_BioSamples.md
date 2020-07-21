@@ -1,3 +1,6 @@
+> :bulb: __WIP__
+
+# Using biosamples bioschema implementation, an examplar  with EBiSC
 So the recipe draft will include:
 
 - what is the BioSD bioschema profile
@@ -5,6 +8,24 @@ So the recipe draft will include:
 - how to extend the BioSD generic profile to more specific ones based on BioSD, e.g. EBiSC-BioSD profile
  - how to reuse BioSD pipeline to implement bioschema, without interacting with BioSD
 
+## What is a biosample profile
+TODO
+- [ ] a table of sample profile attributes
+- [ ] a screenshot of bioschema sample page
+- [ ] a mermaid graph explaining the sample profile structure
+
+## Implementation in BioSample, an example with EBiSC
+- [ ] downloading biosamples jsonld through UI/API
+
+## next step from BSD implementation
+- [ ] whart's not covered in the profile, eg external references, structured data. 
+- [ ] profile very generic
+
+## How it is used
+- [ ] example of google programmable search
+
+## How to create a new profile
+## How to reuse the BSD jsonld converter
 
 # Table of Contents
 1. [Main FAIRification Objectives](#Main%20FAIRification%20Objectives)
