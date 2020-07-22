@@ -97,15 +97,23 @@ graph LR;
 ## Considerations for uploading
 >For uploading much of the above will apply. the main differences:
 >>know which area to upload to
->>prepare your data for ease of loading. E.g. directories? Or compression if needed.
+>>prepare your data for ease of loading. E.G. directories? Or compression if needed.
 >Example command line for uploading
 (Needed - no real example yet)
+
+## TO DO:
+>Aspera is commercial software
+>Is this still okay as part of FAIR principles? As long as the instution with the server has paid for the licence
+>Action : ask EBI e.g. Tony or Fuqi (in the presentation)
+>Action Philippe: will ask Mark Wilkinson if Aspera is compliant? and how it would work with his evaluator?
+>Look at the dockerised version of the client?
+>write a new recipe for uploading - probably update this.
 
 
 ## Authors:
 
 | Name           | Affiliation    | orcid          | CrediT role   |
 | :------------- | :------------- | :------------- |:------------- |
-| Peter Woolllard  | GSK, metadata group in R&D Data and Computational Sciences  |  0000-0002-7654-6902 |  Writing - Original Draft |
-| | | | |
+| Peter Woollard  | GSK, metadata group in R&D Data and Computational Sciences  |  0000-0002-7654-6902 |  Writing - Original Draft |
+| Philippe Rocca-Sera | Oxford University| | reviewer |
 | | | | |
