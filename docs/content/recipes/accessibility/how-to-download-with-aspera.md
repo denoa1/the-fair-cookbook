@@ -52,10 +52,9 @@ graph LR;
 >Typically Aspera sites are locked down and need a username and password.
 >For some sites, only one username is allowed per organisation, so it is worth making sure >that that person is technically capable of uploading or downloading data, and also understands the data a little.
  
-## Decide how you are you going  access the data:
+## Decide how you are going to access the data:
 >A Web browser is great for initial browsing and downloading of small occasional files. It will automatically prompt you to download the Aspera broswer plugin to be able to do download any files.
 >For heavy duty downloading an Aspera command line client is needed. e.g. to download gigabytes or even terrabytes of data.
- 
  
 ## Decide on Software needed and get it installed:
  
@@ -65,18 +64,18 @@ graph LR;
 >>General: https://download.asperasoft.com/download/docs/ascp/2.7/html/index.html
 >>Examples https://download.asperasoft.com/download/docs/ascp/2.7/html/fasp/ascp-examples.html
  
-## Get the Firewall Configured as required to allow downloading and or uploading
+## Get the Firewall Configured as required to allow downloading and or uploading:
 >You may need to have firewall exceptions raised to unblock ports 3301 and 22, with your organisation IT's network perimeter team. 
 >Try connecting first in case they are already not blocked
 
-## Work out the appropriate command line options
+## Work out the appropriate command line options:
 >For the Aspera command line, there are a large variety of options for downloading and uploading. See the download documentation above.
 >Considerations:
 >Use the <em>-k {1,2,3}</em>  option to allow restarts without re-downloading all the data.
 >Run it using something like screen, so that it can be running in the background on a server
 >On the command line you can choose a preferred transfer rate. Please be careful to not hog the network bandwidth (we found up to about 100Mbps is okay).
  
-## Download Example command line
+## Download Example command line:
 >These are the download command options we used. (and both ports 3301 and 22 were unblocked)
 >#set the password variable corresponding to your Aspera account.
 <em>export ASPERA_SCP_FILEPASS="mypassword"</em>
@@ -85,12 +84,12 @@ graph LR;
 <em>/hpc/apps/current/aspera/v3.9.6.app/bin/ascp -k 1 -P 33001  -o FileCrypt=decrypt aspera.myacc@aspera-immport.niaid.nih.gov:dir_to_download ./</em>
  
 >Ascp Version we used:
-<em>Linux% ascp --version
-IBM Aspera Desktop Client version 3.9.6.176292
-ascp version 3.9.6.176292
-…
+><em>Linux% ascp --version
+>IBM Aspera Desktop Client version 3.9.6.176292
+>ascp version 3.9.6.176292
+>…
 </em> 
-## Other suggestions
+## Other suggestions:
 >Observe the  download/upload speed e.g. 100Mbs and then you can estimate the finish time
 >Have some automated monitoring on the download process to  notify you if it  stops/finishes.  Even an hourly  <em>du -sh</em> from a cron job
 >Also typically you are pulling down many directories and files. On completion, it may be worth doing a recursive file listing to a file e.g. ls -ltR > file_listing.txt to give you and your "customers" a simple file catalogue.
