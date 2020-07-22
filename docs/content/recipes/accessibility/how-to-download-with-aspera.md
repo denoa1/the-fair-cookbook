@@ -72,27 +72,27 @@ graph LR;
 ## Work out the appropriate command line options
 >For the Aspera command line, there are a large variety of options for downloading and uploading. See the download documentation above.
 >Considerations:
->Use the -k {1,2,3}  option to allow restarts without re-downloading all the data.
+>Use the <em>-k {1,2,3}</em>  option to allow restarts without re-downloading all the data.
 >Run it using something like screen, so that it can be running in the background on a server
 >On the command line you can choose a preferred transfer rate. Please be careful to not hog the network bandwidth (we found up to about 100Mbps is okay).
  
 ## Download Example command line
 >These are the download command options we used. (and both ports 3301 and 22 were unblocked)
 >#set the password variable corresponding to your Aspera account.
-export ASPERA_SCP_FILEPASS="mypassword"
+<em>export ASPERA_SCP_FILEPASS="mypassword"</em>
  
 >#example to download the files recursively from a specific directory on the Aspera server to
-/hpc/apps/current/aspera/v3.9.6.app/bin/ascp -k 1 -P 33001  -o FileCrypt=decrypt aspera.myacc@aspera-immport.niaid.nih.gov:dir_to_download ./
+<em>/hpc/apps/current/aspera/v3.9.6.app/bin/ascp -k 1 -P 33001  -o FileCrypt=decrypt aspera.myacc@aspera-immport.niaid.nih.gov:dir_to_download ./</em>
  
 >Ascp Version we used:
-Linux% ascp --version
+<em>Linux% ascp --version
 IBM Aspera Desktop Client version 3.9.6.176292
 ascp version 3.9.6.176292
 …
- 
+</em> 
 ## Other suggestions
 >Observe the  download/upload speed e.g. 100Mbs and then you can estimate the finish time
->Have some automated monitoring on the download process to  notify you if it  stops/finishes.  Even an hourly  "du -sh" from a cron job
+>Have some automated monitoring on the download process to  notify you if it  stops/finishes.  Even an hourly  <em>du -sh</em> from a cron job
 >Also typically you are pulling down many directories and files. On completion, it may be worth doing a recursive file listing to a file e.g. ls -ltR > file_listing.txt to give you and your "customers" a simple file catalogue.
 
 ## Considerations for uploading
