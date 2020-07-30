@@ -1,11 +1,4 @@
----
-name: Create Recipe
-about: Create a new recipe for the FAIR Cookbook
-title: ''
-labels: ''
-assignees: ''
-
----
+# Ontology annotation with ZOOMA
 
 # Table of Contents
 1. [Main FAIRification Objectives](#Main%20FAIRification%20Objectives)
@@ -23,17 +16,44 @@ assignees: ''
 
 The main purpose of this recipe is:
 
-> Making self describing tabular data using Frictionless tools instead of dumping Excel files.
-
+> - Providing manual and automated solutions to perform ontology term annotation
+> - Providing an example of validation ontology term validation
 ___
 
 
 ## Graphical Overview of the FAIRification Recipe Objectives
+```mermaid
 
+graph TD
+    A[fa:fa-file-text-o Input: Text for annotation]-->B{Automatic solutions required?}
+    B-->|N|C[fa:fa-user Manual annotation <br> using web interface]
+    C-->D[fa:fa-cogs Select source ontology]
+    B-->|y|C1[fa:fa-cube Automated annotation <br>using API]
+    C1-->D
+
+      subgraph Advanced Configuration
+        D --> D1[fa:fa-cogs Select annotation evidence]
+      end
+
+    D1-->E[fa:fa-user Manual inspection]
+    
+    D1-->E1[fa:fa-cube Automatic validation]
+    E1-->E
+    E -->F[fa:fa-check Output:Text with annotation]
+
+```
+[![](https://mermaid.ink/img/eyJjb2RlIjoiXG5ncmFwaCBURFxuICAgIEFbZmE6ZmEtZmlsZS10ZXh0LW8gSW5wdXQ6IFRleHQgZm9yIGFubm90YXRpb25dLS0-QntBdXRvbWF0aWMgc29sdXRpb25zIHJlcXVpcmVkP31cbiAgICBCLS0-fE58Q1tmYTpmYS11c2VyIE1hbnVhbCBhbm5vdGF0aW9uIDxicj4gdXNpbmcgd2ViIGludGVyZmFjZV1cbiAgICBDLS0-RFtmYTpmYS1jb2dzIFNlbGVjdCBzb3VyY2Ugb250b2xvZ3ldXG4gICAgQi0tPnx5fEMxW2ZhOmZhLWN1YmUgQXV0b21hdGVkIGFubm90YXRpb24gPGJyPnVzaW5nIEFQSV1cbiAgICBDMS0tPkRcblxuICAgICAgc3ViZ3JhcGggQWR2YW5jZWQgQ29uZmlndXJhdGlvblxuICAgICAgICBEIC0tPiBEMVtmYTpmYS1jb2dzIFNlbGVjdCBhbm5vdGF0aW9uIGV2aWRlbmNlXVxuICAgICAgZW5kXG5cbiAgICBEMS0tPkVbZmE6ZmEtdXNlciBNYW51YWwgaW5zcGVjdGlvbl1cbiAgICBcbiAgICBEMS0tPkUxW2ZhOmZhLWN1YmUgQXV0b21hdGljIHZhbGlkYXRpb25dXG4gICAgRTEtLT5FXG4gICAgRSAtLT5GW2ZhOmZhLWNoZWNrIE91dHB1dDpUZXh0IHdpdGggYW5ub3RhdGlvbl0iLCJtZXJtYWlkIjp7InRoZW1lIjoibmV1dHJhbCJ9fQ)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiXG5ncmFwaCBURFxuICAgIEFbZmE6ZmEtZmlsZS10ZXh0LW8gSW5wdXQ6IFRleHQgZm9yIGFubm90YXRpb25dLS0-QntBdXRvbWF0aWMgc29sdXRpb25zIHJlcXVpcmVkP31cbiAgICBCLS0-fE58Q1tmYTpmYS11c2VyIE1hbnVhbCBhbm5vdGF0aW9uIDxicj4gdXNpbmcgd2ViIGludGVyZmFjZV1cbiAgICBDLS0-RFtmYTpmYS1jb2dzIFNlbGVjdCBzb3VyY2Ugb250b2xvZ3ldXG4gICAgQi0tPnx5fEMxW2ZhOmZhLWN1YmUgQXV0b21hdGVkIGFubm90YXRpb24gPGJyPnVzaW5nIEFQSV1cbiAgICBDMS0tPkRcblxuICAgICAgc3ViZ3JhcGggQWR2YW5jZWQgQ29uZmlndXJhdGlvblxuICAgICAgICBEIC0tPiBEMVtmYTpmYS1jb2dzIFNlbGVjdCBhbm5vdGF0aW9uIGV2aWRlbmNlXVxuICAgICAgZW5kXG5cbiAgICBEMS0tPkVbZmE6ZmEtdXNlciBNYW51YWwgaW5zcGVjdGlvbl1cbiAgICBcbiAgICBEMS0tPkUxW2ZhOmZhLWN1YmUgQXV0b21hdGljIHZhbGlkYXRpb25dXG4gICAgRTEtLT5FXG4gICAgRSAtLT5GW2ZhOmZhLWNoZWNrIE91dHB1dDpUZXh0IHdpdGggYW5ub3RhdGlvbl0iLCJtZXJtYWlkIjp7InRoZW1lIjoibmV1dHJhbCJ9fQ)
 
 ___
 ## User Stories
-
+>TODO
+>
+| As a ...  | I want to ... | So that ... |
+|----------|:-------------:|------:|
+|Data analyst|Annotate free text to ontology terms|??|
+|Data librarian|Perform dvfdsdfsfdsdgfgfo|   gds dgf|
+| sgffd | gsdf |    gsdf |
+        
 ## Capability & Maturity Table
 
 | Capability  | Initial Maturity Level | Final Maturity Level  |
@@ -46,57 +66,66 @@ ___
 
 | Actions.Objectives.Tasks  | Input | Output  |
 | :------------- | :------------- | :------------- |
-| [validation](http://edamontology.org/operation_2428)  | [Structure Data File (SDF)](https://fairsharing.org/FAIRsharing.ew26v7)  | [report](http://edamontology.org/data_2048)  |
-| [calculation](http://edamontology.org/operation_3438)  | [Structure Data File (SDF)](https://fairsharing.org/FAIRsharing.ew26v7) | [InChi](https://fairsharing.org/FAIRsharing.ddk9t9) |
-| [calculation](http://edamontology.org/operation_3438)  | [Structure Data File (SDF)](https://fairsharing.org/FAIRsharing.ew26v7)  | [SMILES](https://fairsharing.org/FAIRsharing.qv4b3c)  |
-| [text annotation](http://edamontology.org/operation_3778)  | [Human Phenotype Ontology](https://fairsharing.org/FAIRsharing.kbtt7f)  | [annotated text](http://edamontology.org/data_3779)  |
+| [text annotation](http://edamontology.org/operation_3778)  | Ontology| [annotated text](http://edamontology.org/data_3779)  |
 
 
 ## Table of Data Standards
 
 | Data Formats  | Terminologies | Models  |
 | :------------- | :------------- | :------------- |
-| [FASTQ](https://fairsharing.org/FAIRsharing.r2ts5t)  | [LOINC](https://fairsharing.org/FAIRsharing.2mk2zb)  | [SRA XML](https://fairsharing.org/FAIRsharing.q72e3w)  |
-| [DICOM](https://fairsharing.org/FAIRsharing.b7z8by)  | [Human Phenotype Ontology](https://fairsharing.org/FAIRsharing.kbtt7f)  | [OMOP](https://fairsharing.org/FAIRsharing.qk984b)  |
+| [Text](http://edamontology.org/data_3671)  |  |     |
+| [CSV](http://edamontology.org/format_3752)  |  | |
 
 ___
+### Benefit of ontology annotation
+dfasdasfas
+### ZOOMA intro
+1. text 2. annotation evidence 
+### Two examples
+1. manual 
+2. API
 
+#### Manual annotation
+#### Example data
+biospeciement nasal swab
+#### Basics
+screenshot
+##### Configuring
+source and :octopus: ontology recommendation recip
+#### Output explained
+confidence, evidence, term and purl
 
-## Executable Code in Notebook
+### Automated annotation
+API doc
+#### Basics
+Output explained
+#### Configuring
+select preferred source
+#### Automated validation
+limitations of zooma
 
+### Manual inspection
+- correct source?
+- correct terms?
+    e.g. specimen can be biometerial or method
 
-```python
-import isatools
-import json
-import pandas as pd 
-import holoview
-```
+## Summary
+1. a good solution with zooma
+2. limitations and validation needed
+3. general comments about ontology annotation
 
-___
-
-## How to create workflow figures
-
-one may use the following **[mermaid](https://mermaid-js.github.io/mermaid/#/)** syntax:
-
-```
-graph LR;
-    A[Data Acquisition] -->B(Raw Data)
-    B --> C{FAIR by Design}
-    C -->|Yes| D[Standard Compliant Data]
-    C -->|No| E[Vendor locked Data]
-```
-
-___
-
+### Related recipes
+- :octopus: [What is ontology]()
+- :octopus: [What is OLS and ZOOMA]()
+- :octopus: [Ontology source recommendation]
+### References
 
 
 ## Authors:
 
 | Name | Affiliation  | orcid | CrediT role  |
 | :------------- | :------------- | :------------- |:------------- |
-| Philippe Rocca-Serra |  University of Oxford, Data Readiness Group| [0000-0001-9853-5668](https://orcid.org/orcid.org/0000-0001-9853-5668) | Writing - Original Draft |
-| Susanna-Assunta Sansone |  University of Oxford, Data Readiness Group | | Writing - Review & Editing, Funding acquisition | 
-
+|Fuqi Xu|[EMBL-EBI](https://www.ebi.ac.uk)| [0000-0002-5923-3859](https://orcid.org/orcid.org/0000-0002-5923-3859) | Writing - Original Draft |
 ___
 
 
