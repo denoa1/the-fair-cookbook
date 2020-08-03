@@ -82,9 +82,10 @@ ___
 dfasdasfas
 ### ZOOMA intro
 1. text 2. annotation evidence 
-### Two examples
+
 This recipe provides examples of using ZOOMA for ontology annotation both manually and automatically.
 
+### Step 0: Example data for annotation
 The example data for annotation is cell line metadata from the EBiSC registry, see below. The [original data](https://www.ebi.ac.uk/biosamples/samples/SAMEA104623616) can be found on the BioSamples database.
 
 _Table 1: Example data for annotation_
@@ -100,21 +101,23 @@ _Table 1: Example data for annotation_
 | synonym       | BIONi010-C heterozygous TREM2 KO|   
 | title         | Induced Pluripotent Stem Cell Line BIONi010-C-25|
 
+#### Step 1: Bacis Annotation
+
 #### Manual annotation
-__Step 1:Input__
+__Input__
 weblink, line break seperated, maximum term limit
 
 ![](https://i.imgur.com/x4MzLAq.jpg)
 _Image 1: ZOOMA input example_
 
-__Step 2:Annotation and output__
+__Output__
 - only values, mapping confidence (how it was calculated, source)
 - zooma download as CSV table.
 
 ![](https://i.imgur.com/vagfhuk.jpg)
 _Image 2: ZOOMA output example 1, webform_
 
-#### Automation
+#### Automation, API
 1. general
 >https://www.ebi.ac.uk/spot/zooma/v2/api/services/annotate?propertyValue=keyword_a
 e.g. normal
@@ -122,9 +125,9 @@ e.g. normal
 curl https://www.ebi.ac.uk/spot/zooma/v2/api/services/annotate?propertyValue=normal
 ```
 Example output, include semantic tags, provenance, confidence and curation details. e.g.
-```json
-[{
-	'uri': None,
+
+```
+[{'uri': None,
 	'annotatedProperty': {
 		'uri': 'http://rdf.ebi.ac.uk/resource/zooma/40EA3327BFCCBB34E3ACA740B6D0E0D8',
 		'propertyType': 'disease',
@@ -141,67 +144,22 @@ Example output, include semantic tags, provenance, confidence and curation detai
 	'replaces': [],
 	'derivedFrom': {
 		'uri': 'http://rdf.ebi.ac.uk/resource/zooma/atlas/35511DFDA524E499B43611B07A437198',
-		'annotatedProperty': {
-			'uri': 'http://rdf.ebi.ac.uk/resource/zooma/40EA3327BFCCBB34E3ACA740B6D0E0D8',
-			'propertyType': 'disease',
-			'propertyValue': 'normal'
-		},
-		'_links': {
-			'olslinks': [{
-				'href': 'http://purl.obolibrary.org/obo/PATO_0000461',
-				'semanticTag': 'http://purl.obolibrary.org/obo/PATO_0000461'
-			}]
-		},
-		'semanticTags': ['http://purl.obolibrary.org/obo/PATO_0000461'],
-		'replacedBy': [],
-		'replaces': [],
-		'annotatedBiologicalEntities': [{
-			'uri': 'http://rdf.ebi.ac.uk/resource/zooma/atlas/D870BD127220F1BC5AE512ED1ACBFA7A',
-			'name': 'Mucositis-BRENC3',
-			'types': ['http://www.w3.org/2002/07/owl#NamedIndividual',
-				'http://rdf.ebi.ac.uk/terms/zooma/Target'
-			],
-			'studies': [{
-				'uri': 'http://rdf.ebi.ac.uk/resource/zooma/atlas/ADE9D94BA0E559880B32A572E40FC588',
-				'accession': 'E-GEOD-10746',
-				'types': ['http://www.w3.org/2002/07/owl#NamedIndividual',
-					'http://rdf.ebi.ac.uk/terms/zooma/DatabaseEntrySource'
-				]
-			}]
-		}],
-		'provenance': {
-			'source': {
-				'type': 'DATABASE',
-				'name': 'atlas',
-				'uri': 'https://www.ebi.ac.uk/gxa'
-			},
-			'evidence': 'MANUAL_CURATED',
-			'accuracy': 'NOT_SPECIFIED',
-			'generator': 'https://www.ebi.ac.uk/gxa',
-			'generatedDate': 1596790864000,
-			'annotator': 'Laura Huerta',
-			'annotationDate': 1457460000000
-		}
-	},
-	'confidence': 'HIGH',
-	'annotatedBiologicalEntities': [],
-	'provenance': {
-		'source': {
-			'type': 'DATABASE',
-			'name': 'zooma',
-			'uri': 'www.ebi.ac.uk/spot/zooma'
-		},
-		'evidence': 'ZOOMA_INFERRED_FROM_CURATED',
-		'accuracy': None,
-		'generator': 'ZOOMA',
-		'generatedDate': 1596454118520,
-		'annotator': 'ZOOMA',
-		'annotationDate': 1596454118520
-	}
-}]
+    ...
+```
+Complete output [here](https://gist.githubusercontent.com/FuqiX/45809dfbbf75f7d1b350367501adeb97/raw/79e01ad93f328be8f2b6dfc120a9e9385fbb3772/ZOOMA_API_output)
+
+Example code for auto annotating the table above
+```python
+read_table
+requests
+parse
+output
 ```
 
-__Step 3: Advance configuration__
+### Step 2: Advance configuration__
+
+#### Step 2.1 curation data source
+__Manual__ 
 ![](https://i.imgur.com/br67A4s.jpg)
 _Image 3: ZOOMA configuration, curation datasources__
 maybe come from expression atlas
@@ -215,7 +173,9 @@ Example of ZOOMA curation evidence
 |       | SAMN14450688 | host disease     | COVID19             | http://purl.obolibrary.org/obo/MONDO_0100096     |Curator_A   | 2020-04-14 17:00:00 |
 |       | SAMN14428242 | isolation source | nasal swab          | http://purl.obolibrary.org/obo/NCIT_C155833      |Curator_B   | 2020-04-14 17:00:00 |
 |       | SAMEA6880656 | Organism         | Homo Sapien         | http://purl.obolibrary.org/obo/NCBITaxon_9606    |Curator_A  | 2020-04-14 17:00:00 |
+__API__
 
+#### Step 2.2 curation ontology source
 
 ![](https://i.imgur.com/pyZItqZ.jpg)
 _Image 4: ZOOMA configuration, ontology sources__
@@ -224,14 +184,15 @@ e.g.
 ![](https://i.imgur.com/Y8EHwI0.jpg)
 
 
-### API config
+### Step 2.3 Other advanced curation
+
 > point to ZOOMA documentation
 - Specify property type
 https://www.ebi.ac.uk/spot/zooma/v2/api/services/annotate?propertyValue=mus+musculus&propertyType=organism
-- # 1.Required annotation source, use annotations from 'atlas' and 'gwas'
+- 1.Required annotation source, use annotations from 'atlas' and 'gwas'
 https://www.ebi.ac.uk/spot/zooma/v2/api/services/annotate?propertyValue=mus+musculus&propertyType=organism&filter=required:[atlas,gwas]
-- # 2. Preferred annotation source, use 'atlas' and 'gwas' annotations and give preference to 'gwas'
-- # 3. Specific ontology source
+- 2. Preferred annotation source, use 'atlas' and 'gwas' annotations and give preference to 'gwas'
+- 3. Specific ontology source
 https://www.ebi.ac.uk/spot/zooma/v2/api/services/annotate?propertyValue=mus+musculus&propertyType=organism&filter=required:[atlas,gwas],ontologies:[none]
 
 ### Warning, zooma is biased
