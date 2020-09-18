@@ -470,9 +470,9 @@ graph LR
             <span class="n">no_annotations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-            <span class="n">annotations</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{item[&#39;semanticTags&#39;][0]}</span><span class="s2"> &quot;</span>
-                                <span class="n">f</span><span class="s2">&quot;# </span><span class="si">{value}</span><span class="s2">&quot;</span>
-                                <span class="n">f</span><span class="s2">&quot;-Confidence:</span><span class="si">{item[&#39;confidence&#39;]}</span><span class="s2">&quot;</span><span class="p">))</span>
+            <span class="n">annotations</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;semanticTags&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> &quot;</span>
+                                <span class="sa">f</span><span class="s2">&quot;# </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
+                                <span class="sa">f</span><span class="s2">&quot;-Confidence:</span><span class="si">{</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;confidence&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">annotations</span><span class="p">,</span> <span class="n">no_annotations</span>
 
@@ -482,7 +482,7 @@ graph LR
 
     <span class="n">annotations</span><span class="p">,</span> <span class="n">no_annotations</span> <span class="o">=</span> <span class="n">get_annotations</span><span class="p">(</span><span class="n">propertyType</span><span class="p">,</span> <span class="n">propertyValues</span><span class="p">)</span>
 
-    <span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
+    <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
     <span class="n">pprint</span><span class="p">(</span><span class="n">annotations</span><span class="p">)</span>
     <span class="n">pprint</span><span class="p">(</span><span class="n">no_annotations</span><span class="p">)</span>
 </pre></div>
@@ -537,7 +537,7 @@ graph LR
             <span class="n">no_annotations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-            <span class="n">annotations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{item[&#39;annotatedClass&#39;][&#39;@id&#39;]}</span><span class="s2"> # </span><span class="si">{value}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">annotations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;annotatedClass&#39;</span><span class="p">][</span><span class="s1">&#39;@id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> # </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">annotations</span><span class="p">,</span> <span class="n">no_annotations</span>
 
@@ -547,7 +547,7 @@ graph LR
 
     <span class="n">annotations</span><span class="p">,</span> <span class="n">no_annotations</span> <span class="o">=</span> <span class="n">get_annotations</span><span class="p">(</span><span class="n">propertyType</span><span class="p">,</span> <span class="n">propertyValues</span><span class="p">)</span>
 
-    <span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
+    <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
     <span class="n">pprint</span><span class="p">(</span><span class="n">annotations</span><span class="p">)</span>
     <span class="n">pprint</span><span class="p">(</span><span class="n">no_annotations</span><span class="p">)</span>
 </pre></div>
